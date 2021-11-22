@@ -119,6 +119,10 @@
         <code>web.xml</code> file, a <code>web-fragment.xml</code> file nor
         annotated with <code>WebListener</code>. (markt)
       </fix>
+      <fix>
+        Limit cookie support to RFC 6265 to align with recent updates to the
+        Servlet specification. (markt)
+      </fix>
     </changelog>
   </subsection>
   <subsection name="Coyote">
