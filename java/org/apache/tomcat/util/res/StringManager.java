@@ -16,6 +16,7 @@
  */
 package org.apache.tomcat.util.res;
 
+import java.nio.charset.StandardCharsets;
 import java.text.MessageFormat;
 import java.util.Enumeration;
 import java.util.Hashtable;
@@ -132,6 +133,12 @@ public class StringManager {
             if (bundle != null) {
                 str = bundle.getString(key);
             }
+
+            // 解决控制台乱码
+            if (str != null) {
+                str = new String(str.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+            }
+
         } catch (MissingResourceException mre) {
             //bad: shouldn't mask an exception the following way:
             //   str = "[cannot find message associated with key '" + key +
